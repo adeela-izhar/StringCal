@@ -16,11 +16,14 @@ public class Calculator {
                 throw new NullPointerException();
             }
             else if(input.contains(",")){
+                int sum = 0;
                 String[] numbers = input.split(",");
-                int num1 = Integer.parseInt(numbers[0]);
-                int num2 = Integer.parseInt(numbers[1]);
 
-                return num1+num2;
+                for(String num : numbers){
+                    int n = Integer.parseInt(num);
+                    sum+=n;
+                }
+                return sum;
             } else {
                 return Integer.parseInt(input);
             }

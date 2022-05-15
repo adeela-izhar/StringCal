@@ -20,4 +20,9 @@ public class CalculatorTest {
         Assert.assertEquals(24,Calculator.Add("24"));
     }
 
+    @Test
+    public void shouldHandleMultipleNumbersAndReturnSum(){
+        Assert.assertEquals(75,Calculator.Add("24,25,26"));
+    }
+
 }

@@ -10,4 +10,14 @@ public class CalculatorTest {
         Assert.assertEquals(0,Calculator.Add(""));
     }
 
+    @Test
+    public void shouldReturnSumOfTwoNumber(){
+        Assert.assertEquals(6,Calculator.Add("2,4"));
+    }
+
+    @Test
+    public void ifInputHasOnlyOneNumber(){
+        Assert.assertEquals(24,Calculator.Add("24"));
+    }
+
 }

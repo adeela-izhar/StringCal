@@ -1,6 +1,8 @@
 package com.incubyte;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Calculator {
 
@@ -15,7 +17,7 @@ public class Calculator {
             if(null==input || input.isEmpty()){
                 throw new NullPointerException();
             }
-            else if(input.contains(",")){
+            else {
                 int sum = 0;
                 String[] numbers = extractNumbers(input);
 
@@ -24,11 +26,7 @@ public class Calculator {
                     sum+=n;
                 }
                 return sum;
-            } else {
-                return Integer.parseInt(input);
             }
-
-
         } catch (NullPointerException ne) {
             return 0;
         }  catch (Exception e) {
@@ -37,6 +35,13 @@ public class Calculator {
     }
 
     public static String[] extractNumbers(String input){
+        if(input.startsWith("//")){
+            Matcher m = Pattern.compile("//(.)\n(.*)").matcher(input);
+            m.matches();
+            String newDelimiter = m.group(1);
+            String numberList = m.group(2);
+            return numberList.split(newDelimiter);
+        }
         String[] numbers = input.split(",|\n");
         return numbers;
     }

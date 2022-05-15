@@ -30,4 +30,10 @@ public class CalculatorTest {
         Assert.assertEquals(6,Calculator.Add("1\n2,3"));
     }
 
+
+    @Test
+    public void shouldSupportDifferentDelimiters(){
+        Assert.assertEquals(3,Calculator.Add("//;\n1;2"));
+    }
+
 }

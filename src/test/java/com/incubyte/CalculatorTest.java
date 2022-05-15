@@ -25,4 +25,9 @@ public class CalculatorTest {
         Assert.assertEquals(75,Calculator.Add("24,25,26"));
     }
 
+    @Test
+    public void shoulAllowNewLineAsDelimiter(){
+        Assert.assertEquals(6,Calculator.Add("1\n2,3"));
+    }
+
 }

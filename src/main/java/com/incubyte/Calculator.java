@@ -17,7 +17,7 @@ public class Calculator {
             }
             else if(input.contains(",")){
                 int sum = 0;
-                String[] numbers = input.split(",");
+                String[] numbers = extractNumbers(input);
 
                 for(String num : numbers){
                     int n = Integer.parseInt(num);
@@ -34,5 +34,10 @@ public class Calculator {
         }  catch (Exception e) {
             return 0;
         }
+    }
+
+    public static String[] extractNumbers(String input){
+        String[] numbers = input.split(",|\n");
+        return numbers;
     }
 }
